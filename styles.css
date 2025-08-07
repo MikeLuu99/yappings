@@ -1,0 +1,150 @@
+/* Import Lora font */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
+/* Unified theme styles for blog posts and homepage */
+body {
+    font-family: "Lora", serif;
+    line-height: 1.6;
+    color: #eeebe4;
+    background-color: #0e0b05;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #eeebe4;
+    margin-top: 2rem;
+}
+
+h1 {
+    border-bottom: 2px solid #444;
+    padding-bottom: 0.5rem;
+}
+
+code {
+    background-color: #333;
+    color: #eeebe4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: "Courier New", monospace;
+}
+
+pre {
+    background-color: #222;
+    color: #eeebe4;
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+blockquote {
+    border-left: 4px solid #3498db;
+    margin: 1rem 0;
+    padding: 0 1rem;
+    color: #eeebe4;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+}
+
+.meta {
+    color: #eeebe4;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #444;
+}
+
+ul,
+ol {
+    padding-left: 2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: #66b3ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #99ccff;
+    text-decoration: underline;
+}
+
+/* Specific styling for article content */
+article {
+    background-color: #0e0b05;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+main {
+    color: #eeebe4;
+}
+
+/* Homepage specific styles */
+.home h1 {
+    color: #eeebe4;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    border-bottom: none;
+}
+
+.posts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.posts li {
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.posts h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #eeebe4;
+}
+
+.posts h2 a {
+    color: #eeebe4;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.posts h2 a:hover {
+    color: #66b3ff;
+    text-decoration: underline;
+}
+
+.posts time {
+    color: #b8b3a6;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.posts p {
+    color: #d4cfc2;
+    margin: 0;
+    line-height: 1.5;
+}
