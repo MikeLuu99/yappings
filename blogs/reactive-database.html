@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Reactive Database, A future for real-time software development</title>
+        <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+        <link rel="stylesheet" href="../styles.css" />
+    </head>
+    <body>
+        <article>
+            <header>
+                <a href="../index.html" class="back-button">&lt;</a>
+                <h1>Reactive Database, A future for real-time software development</h1>
+                <div class="meta">Published: 2024-11-04</div>
+            </header>
+            <main>
+                <h2>What is Reactive Database?</h2>
+                <p>
+                    I first heard about the phrase reactive database from <a href="https://convex.dev/">Convex</a> one-liner. My initial thought is that this is a database built for the React.js environment. How wrong was I. A reactive database can be easily defined by its name. It is reactive. In particular, it is highly reactive to changes in the database. Whenever a certain data rows or documents are updated, the UI will also neeto to changed. A simple example for this is a simple collaborative text editor. When a user changes the text, the other users need to be notified. Sound familar? Yeah, that's just Google Docs, right? Aren't this technology has already existed for a long time? That's true, reactive database is not a new grandiose idea. Every collaborative piece of software need a reactive databsae. Figma, Google Docs, Notion, and on and on allutilized a reactive database. However, most of the time, they are built on top of a normal standard SQL database. The reactive part is actually just a web socket back-end server to sync the data from different clients and also the remote database. Each companies has their own approach to build a reactive database. But for startups and small companies that want to build a collaborative software, implementing a reactive database from scratch is an difficult but interesting challenge.
+                </p>
+
+                <h2>Convex</h2>
+                <p>
+                    To speed up the development stage for these collaborative software, an abstraction or a software vendor is highly needed. Convex is one of those solution for a reactive database. The original database was based on SQLite however you can use their back-end with any storage from SQLite to PostgreSQL. Keep in mind that Convex itself does not use SQL and those database are just for storage. The way to work with data in Convex is highly similar to using a NoSQL database like MongoDB. Nevertheless, they are still relatively different to each other. Convex is fully ACID-compliance with real-time support while MongoDB is still a document-store database that is not ACID-compliant and does not fully support real-time yet. You can see convex database is a good mixed between both NoSQL and SQL database. It has the flexibility of NoSQLin storing data in document format with schema-free development but also maintains ACID-compliance like traditional SQL database. A great mix!
+                </p>
+
+                <h2>So we can just use Convex?</h2>
+                <p>
+                    I hope it is just that easy. Even though Convex is a pretty complete solution for most of your use case. You never want to be locked into one database service. If we're talking about scale, the Convex database can scale pretty well. However, in case of way to large traffic, you are not always entirely sure whether Convex can suppport it. Using convex also does not come with the SQL experience. Since transactions lie within the convex typescript experience. It can be an uncomfortable experience with many back-end developers. Convex also takes away many features from PostgreSQL like RLS (Row-Level Security) and many more though the Convex team advertise the idea of easily implementing theses features yourlself. They also have Convex components, which are different common database features and use cases as code samples i the convex documentation. This is a really good business move from convex in order to onboard many more doubters of Convex ablities. On the other hand, the problem of developer experience and familarity is still there. SQL has been used for so long that many back-end developers and companies are not ready for the adoption of this reactive database. Fortunately, the startups and web development scene are seeing a move to more and more ORMs like Prisma and Drizzle, which have both have similar developer experience with Convex. This can be a great starting point for Convex to grow their customer base.
+                </p>
+
+                <h2>Other Solutions</h2>
+                <p>
+                    As mentioned above, a reactive database is mostly just a database with a well-designed sync engine. There are many solutions right now like ElectricSQL, TinyBase, Memcache, PowerSync, ... etc that act as fairly complete synce solution. The only issue is that you still have to many the schema and shape of your local in-memory database and the remote database. Many large companies and startups also have been developing their own back-end and local database like Asana with their LunaDB or Linear's sync engine. Back as a service is also popular solution. Products like Appwrite, Supabase, and even Firebase provide adequate approach with server functions, distributed cachings, and even a storage though most of them don't support real-time like Convex yet.
+                </p>
+
+                <h2>Conclusion</h2>
+                <p>
+                    It seems like we all want our app to be smoother, looks better, and most imporantly, fast. Local-first is leading this trend right now, following with a good reactive database. Personally, I believe the easiest and quickest software for this is still Convex. Despite all the frameworks and back-end with 2-way sync and real-time update, their developer experiences are not good enough to be widely adopted by all new companies that want to move fast. So for now, if you want a quick real-time leaderboard and auth system to your SaaS, just use Convex.
+                </p>
+            </main>
+        </article>
+    </body>
+</html>

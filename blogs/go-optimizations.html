@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Go Optimizations</title>
+        <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+        <link rel="stylesheet" href="../styles.css" />
+    </head>
+    <body>
+        <article>
+            <header>
+                <a href="../index.html" class="back-button">&lt;</a>
+                <h1>Go Optimizations</h1>
+                <div class="meta">Published: 2025-02-05</div>
+            </header>
+            <main>
+                <h2>String operations</h2>
+                <ul>
+                    <li>Use string.Builder instead of string concatenation</li>
+                </ul>
+
+                <h2>JSON handling</h2>
+                <ul>
+                    <li>Use struct instead of map</li>
+                </ul>
+
+                <h2>Objects pool</h2>
+                <ul>
+                    <li>sync.Pool for frequently created Objects</li>
+                </ul>
+
+                <pre><code>// Buffer pool - reuse instead of recreate
+var bufferPool = sync.Pool{
+    New: func() interface{} {
+        return bytes.NewBuffer(make([]byte, 0, 1024))
+    },
+}
+func encodeResponse(data interface{}) ([]byte, error) {
+    buf := bufferPool.Get().(*bytes.Buffer)
+    defer func() {
+        buf.Reset()
+        bufferPool.Put(buf)
+    }()
+    encoder := json.NewEncoder(buf)
+    if err := encoder.Encode(data); err != nil {
+        return nil, err
+    }
+    result := make([]byte, buf.Len())
+    copy(result, buf.Bytes())
+    return result, nil
+}</code></pre>
+
+                <h2>Compiler flags and profiling</h2>
+                <ul>
+                    <li>'go build' is not adequate for most cases. Make sure to proper 'gcflacgs' and 'ldflags'</li>
+                    <li>Collect profiles and builds with 'go build -pgo=your.pprof'</li>
+                    <li>'go tool pprof' for finding bottlenecks.</li>
+                </ul>
+
+                <h2>Overall</h2>
+                <ul>
+                    <li>The optimizations techniques do not always come from clever code and algorithms but from fixing bottlenecks and suitable memory choices in your code.</li>
+                    <li>Before developing the next RAFT consensus algorithm, you should try to change your hashmap to a struct first.</li>
+                </ul>
+            </main>
+        </article>
+    </body>
+</html>
