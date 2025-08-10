@@ -19,11 +19,59 @@
                 <ul>
                     <li>Use string.Builder instead of string concatenation</li>
                 </ul>
+                <pre><code>// Bad: Inefficient string concatenation
+func concatenateStrings(parts []string) string {
+    s := ""
+    for _, p := range parts {
+        s += p
+    }
+    return s
+}
+
+// Good: Efficient string.Builder usage
+func buildString(parts []string) string {
+    var sb strings.Builder
+    sb.Grow(sumOfLengths(parts)) // Optional: pre-allocate capacity
+    for _, p := range parts {
+        sb.WriteString(p)
+    }
+    return sb.String()
+}
+
+// Helper for Grow (example)
+func sumOfLengths(parts []string) int {
+    total := 0
+    for _, p := range parts {
+        total += len(p)
+    }
+    return total
+}</code></pre>
 
                 <h2>JSON handling</h2>
                 <ul>
                     <li>Use struct instead of map</li>
                 </ul>
+                <pre><code>// Bad: Using map for JSON unmarshalling/marshalling
+// map[string]interface{} incurs runtime reflection and interface allocations.
+func unmarshalToMap(data []byte) (map[string]interface{}, error) {
+    var m map[string]interface{}
+    err := json.Unmarshal(data, &m)
+    return m, err
+}
+
+// Good: Using struct for JSON unmarshalling/marshalling
+// Structs are type-safe and more performant as fields are known at compile time.
+type User struct {
+    ID   int    `json:"id"`
+    Name string `json:"name"`
+    Email string `json:"email"`
+}
+
+func unmarshalToStruct(data []byte) (*User, error) {
+    var user User
+    err := json.Unmarshal(data, &user)
+    return &user, err
+}</code></pre>
 
                 <h2>Objects pool</h2>
                 <ul>
@@ -53,15 +101,42 @@ func encodeResponse(data interface{}) ([]byte, error) {
 
                 <h2>Compiler flags and profiling</h2>
                 <ul>
-                    <li>'go build' is not adequate for most cases. Make sure to proper 'gcflacgs' and 'ldflags'</li>
-                    <li>Collect profiles and builds with 'go build -pgo=your.pprof'</li>
+                    <li>
+                        'go build' is not adequate for most cases. Make sure to
+                        proper 'gcflacgs' and 'ldflags'
+                    </li>
+                    <li>
+                        Collect profiles and builds with 'go build
+                        -pgo=your.pprof'
+                    </li>
                     <li>'go tool pprof' for finding bottlenecks.</li>
                 </ul>
+                <pre><code># Analyze escape analysis with gcflags
+go build -gcflags="-m -m" your_package/your_main.go
+
+# Build with Profile-Guided Optimization (PGO)
+go build -pgo=cpu.pprof -o myapp ./cmd/myapp
+
+# Start pprof analysis server
+go tool pprof -http=":8080" cpu.pprof
+
+# Generate a CPU profile for a running application (replace PID)
+go tool pprof http://localhost:6060/debug/pprof/profile?seconds=30
+
+# Generate a heap profile for a running application
+go tool pprof http://localhost:6060/debug/pprof/heap</code></pre>
 
                 <h2>Overall</h2>
                 <ul>
-                    <li>The optimizations techniques do not always come from clever code and algorithms but from fixing bottlenecks and suitable memory choices in your code.</li>
-                    <li>Before developing the next RAFT consensus algorithm, you should try to change your hashmap to a struct first.</li>
+                    <li>
+                        The optimizations techniques do not always come from
+                        clever code and algorithms but from fixing bottlenecks
+                        and suitable memory choices in your code.
+                    </li>
+                    <li>
+                        Before developing the next RAFT consensus algorithm, you
+                        should try to change your hashmap to a struct first.
+                    </li>
                 </ul>
             </main>
         </article>
