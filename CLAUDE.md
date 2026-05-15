@@ -8,8 +8,6 @@ A static personal blog ("yappings") — no build step, no framework, no package 
 
 ## Adding a new blog post
 
-Two manual steps are required:
-
 1. **Create the blog HTML file** at `blogs/<slug>.html`. Use an existing post as a template — the structure is:
    ```html
    <!doctype html>
@@ -17,8 +15,9 @@ Two manual steps are required:
        <head>
            <meta charset="UTF-8" />
            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+           <meta name="description" content="Short description shown on the homepage.">
            <title>Post Title</title>
-           <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+           <link rel="icon" href="../favicon.svg">
            <link rel="stylesheet" href="../styles.css" />
        </head>
        <body>
@@ -36,14 +35,12 @@ Two manual steps are required:
    </html>
    ```
 
-2. **Add a list entry to `index.html`** inside the `<ul class="posts">` list (newest first):
-   ```html
-   <li>
-       <h2><a href="blogs/<slug>.html">Post Title</a></h2>
-       <time>Month DD, YYYY</time>
-       <p>Short description</p>
-   </li>
+2. **Run the build script** to regenerate `index.html`:
+   ```bash
+   node build.js
    ```
+
+   The script scans `blogs/`, reads each post's `<title>`, `Published:` date, and `<meta name="description">`, sorts by date descending, and rewrites the `<ul class="posts">` block in `index.html`. If `<meta name="description">` is missing, it falls back to the first `<p>` in `<main>`.
 
 ## Architecture
 
@@ -52,9 +49,39 @@ Two manual steps are required:
 - `styles.css` — single stylesheet shared by all pages; blog pages reference it as `../styles.css`
 - `shared.js` — client-side JS that auto-initializes on `DOMContentLoaded`: injects favicon and a back-button (`<`) into blog pages based on `window.location.pathname`
 - `templates/` — HTML partials (`head.html`, `blog-header.html`) with `{{PLACEHOLDER}}` syntax, processed by `build.js`
-- `build.js` — Node.js `TemplateProcessor` class (not part of the deploy pipeline; used programmatically if needed to generate pages from templates)
+- `build.js` — Node.js build script; scans `blogs/`, extracts metadata from each post, and regenerates the `<ul class="posts">` list in `index.html`. Run with `node build.js` after adding a new post.
 
-The templates in `templates/` and `build.js` exist as a utility but are **not used by the current static pages** — all existing blog posts are fully self-contained HTML. `shared.js` is also not currently loaded by any page (no `<script>` tag in existing HTML); the back-button and favicon are inlined directly in each blog file.
+`shared.js` is not loaded by any page and can be ignored.
+
+## Writing a post in Markdown
+
+Use the `md-to-html` Rust tool to convert a Markdown file to a blog post HTML file.
+
+**Front matter** (required fields at the top of the `.md` file):
+```
+---
+title: My Post Title
+date: 2025-05-15
+description: One-sentence teaser shown on the homepage.
+slug: my-post-title        # optional — defaults to the filename
+---
+```
+
+**Build and run:**
+```bash
+cd md-to-html
+cargo build --release
+
+# Write to blogs/
+./target/release/md-to-html my-post.md ../blogs
+
+# Or preview on stdout
+./target/release/md-to-html my-post.md
+```
+
+Then run `node build.js` from the project root to update `index.html`.
+
+Supports: headings, paragraphs, bold/italic, links, images, lists, code blocks (with language), blockquotes, tables, strikethrough, task lists.
 
 ## Previewing locally
 

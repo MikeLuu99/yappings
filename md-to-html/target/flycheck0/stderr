@@ -1,0 +1,242 @@
+    Updating crates.io index
+     Locking 7 packages to latest Rust 1.94.0 compatible versions
+      Adding pulldown-cmark v0.12.2 (available: v0.13.3)
+   0.142142166s  INFO prepare_target{force=false package_id=md-to-html v0.1.0 (/Users/user/Documents/yappings/md-to-html) target="md-to-html"}: cargo::core::compiler::fingerprint: fingerprint error for md-to-html v0.1.0 (/Users/user/Documents/yappings/md-to-html)/Check { test: false }/TargetInner { name: "md-to-html", doc: true, ..: with_path("/Users/user/Documents/yappings/md-to-html/src/main.rs", Edition2024) }
+   0.142170208s  INFO prepare_target{force=false package_id=md-to-html v0.1.0 (/Users/user/Documents/yappings/md-to-html) target="md-to-html"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/user/Documents/yappings/md-to-html/target/debug/.fingerprint/md-to-html-ad7bdc19b0062aff/bin-md-to-html`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+   0.162997916s  INFO prepare_target{force=false package_id=pulldown-cmark v0.12.2 target="pulldown_cmark"}: cargo::core::compiler::fingerprint: fingerprint error for pulldown-cmark v0.12.2/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("pulldown_cmark", ["lib"], "/Users/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pulldown-cmark-0.12.2/src/lib.rs", Edition2021) }
+   0.163018458s  INFO prepare_target{force=false package_id=pulldown-cmark v0.12.2 target="pulldown_cmark"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/user/Documents/yappings/md-to-html/target/debug/.fingerprint/pulldown-cmark-2980624a71060908/lib-pulldown_cmark`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+   0.163227625s  INFO prepare_target{force=false package_id=bitflags v2.11.1 target="bitflags"}: cargo::core::compiler::fingerprint: fingerprint error for bitflags v2.11.1/Check { test: false }/TargetInner { ..: lib_target("bitflags", ["lib"], "/Users/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bitflags-2.11.1/src/lib.rs", Edition2021) }
+   0.163231708s  INFO prepare_target{force=false package_id=bitflags v2.11.1 target="bitflags"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/user/Documents/yappings/md-to-html/target/debug/.fingerprint/bitflags-f8a151b508d9d3a5/lib-bitflags`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_ws
+  10: cargo::ops::cargo_compile::compile_with_exec
+  11: cargo::ops::cargo_compile::compile
+  12: cargo::commands::check::exec
+  13: <cargo::cli::Exec>::exec
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.163358541s  INFO prepare_target{force=false package_id=getopts v0.2.24 target="getopts"}: cargo::core::compiler::fingerprint: fingerprint error for getopts v0.2.24/Check { test: false }/TargetInner { ..: lib_target("getopts", ["lib"], "/Users/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getopts-0.2.24/src/lib.rs", Edition2021) }
+   0.163362000s  INFO prepare_target{force=false package_id=getopts v0.2.24 target="getopts"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/user/Documents/yappings/md-to-html/target/debug/.fingerprint/getopts-0ed4838b549b63f3/lib-getopts`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_ws
+  10: cargo::ops::cargo_compile::compile_with_exec
+  11: cargo::ops::cargo_compile::compile
+  12: cargo::commands::check::exec
+  13: <cargo::cli::Exec>::exec
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.163492083s  INFO prepare_target{force=false package_id=unicode-width v0.2.2 target="unicode_width"}: cargo::core::compiler::fingerprint: fingerprint error for unicode-width v0.2.2/Check { test: false }/TargetInner { ..: lib_target("unicode_width", ["lib"], "/Users/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-width-0.2.2/src/lib.rs", Edition2021) }
+   0.163495791s  INFO prepare_target{force=false package_id=unicode-width v0.2.2 target="unicode_width"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/user/Documents/yappings/md-to-html/target/debug/.fingerprint/unicode-width-0b9823758e0fdfdf/lib-unicode_width`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: cargo::core::compiler::compile
+   9: <cargo::core::compiler::build_runner::BuildRunner>::compile
+  10: cargo::ops::cargo_compile::compile_ws
+  11: cargo::ops::cargo_compile::compile_with_exec
+  12: cargo::ops::cargo_compile::compile
+  13: cargo::commands::check::exec
+  14: <cargo::cli::Exec>::exec
+  15: cargo::main
+  16: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  17: std::rt::lang_start::<()>::{closure#0}
+  18: std::rt::lang_start_internal
+  19: _main
+   0.163611750s  INFO prepare_target{force=false package_id=memchr v2.8.0 target="memchr"}: cargo::core::compiler::fingerprint: fingerprint error for memchr v2.8.0/Check { test: false }/TargetInner { benched: false, ..: lib_target("memchr", ["lib"], "/Users/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/memchr-2.8.0/src/lib.rs", Edition2021) }
+   0.163615375s  INFO prepare_target{force=false package_id=memchr v2.8.0 target="memchr"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/user/Documents/yappings/md-to-html/target/debug/.fingerprint/memchr-a3c41a766e5c841e/lib-memchr`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_ws
+  10: cargo::ops::cargo_compile::compile_with_exec
+  11: cargo::ops::cargo_compile::compile
+  12: cargo::commands::check::exec
+  13: <cargo::cli::Exec>::exec
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.163861166s  INFO prepare_target{force=false package_id=pulldown-cmark-escape v0.11.0 target="pulldown_cmark_escape"}: cargo::core::compiler::fingerprint: fingerprint error for pulldown-cmark-escape v0.11.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("pulldown_cmark_escape", ["lib"], "/Users/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pulldown-cmark-escape-0.11.0/src/lib.rs", Edition2021) }
+   0.163864875s  INFO prepare_target{force=false package_id=pulldown-cmark-escape v0.11.0 target="pulldown_cmark_escape"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/user/Documents/yappings/md-to-html/target/debug/.fingerprint/pulldown-cmark-escape-db2d722733c1675b/lib-pulldown_cmark_escape`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_ws
+  10: cargo::ops::cargo_compile::compile_with_exec
+  11: cargo::ops::cargo_compile::compile
+  12: cargo::commands::check::exec
+  13: <cargo::cli::Exec>::exec
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.163964875s  INFO prepare_target{force=false package_id=unicase v2.9.0 target="unicase"}: cargo::core::compiler::fingerprint: fingerprint error for unicase v2.9.0/Check { test: false }/TargetInner { ..: lib_target("unicase", ["lib"], "/Users/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicase-2.9.0/src/lib.rs", Edition2018) }
+   0.163967750s  INFO prepare_target{force=false package_id=unicase v2.9.0 target="unicase"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/user/Documents/yappings/md-to-html/target/debug/.fingerprint/unicase-515f674b7c7b5f62/lib-unicase`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_ws
+  10: cargo::ops::cargo_compile::compile_with_exec
+  11: cargo::ops::cargo_compile::compile
+  12: cargo::commands::check::exec
+  13: <cargo::cli::Exec>::exec
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.164089958s  INFO prepare_target{force=false package_id=md-to-html v0.1.0 (/Users/user/Documents/yappings/md-to-html) target="md-to-html"}: cargo::core::compiler::fingerprint: fingerprint error for md-to-html v0.1.0 (/Users/user/Documents/yappings/md-to-html)/Check { test: true }/TargetInner { name: "md-to-html", doc: true, ..: with_path("/Users/user/Documents/yappings/md-to-html/src/main.rs", Edition2024) }
+   0.164093500s  INFO prepare_target{force=false package_id=md-to-html v0.1.0 (/Users/user/Documents/yappings/md-to-html) target="md-to-html"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/user/Documents/yappings/md-to-html/target/debug/.fingerprint/md-to-html-41a77a223a9b0f11/test-bin-md-to-html`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+    Checking unicode-width v0.2.2
+    Checking memchr v2.8.0
+    Checking bitflags v2.11.1
+    Checking pulldown-cmark-escape v0.11.0
+    Checking unicase v2.9.0
+    Checking getopts v0.2.24
+    Checking pulldown-cmark v0.12.2
+    Checking md-to-html v0.1.0 (/Users/user/Documents/yappings/md-to-html)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.67s
